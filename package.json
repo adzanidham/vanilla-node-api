@@ -1,0 +1,20 @@
+{
+  "name": "vanilla-node-api",
+  "version": "1.0.0",
+  "description": "Latihan membuat REST API dengan vanilla node js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adzanidham/vanilla-node-api.git"
+  },
+  "author": "adzanidham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adzanidham/vanilla-node-api/issues"
+  },
+  "homepage": "https://github.com/adzanidham/vanilla-node-api#readme"
+}
