@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/adzanidham/vanilla-node-api/issues"
   },
-  "homepage": "https://github.com/adzanidham/vanilla-node-api#readme"
+  "homepage": "https://github.com/adzanidham/vanilla-node-api#readme",
+  "dependencies": {
+    "uuid": "^8.3.1"
+  }
 }

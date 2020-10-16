@@ -26,8 +26,23 @@ async function getProduct(req, res, id) {
       res.writeHead(200, { 'Content-Type': 'application/json' })
       res.end(JSON.stringify(product))
     }
+  } catch (error) {
+    console.log(error)
+  }
+}
 
+//  Create product
+async function createProduct(req, res) {
+  try {
+    const product = {
+      title: 'Test Second Product',
+      description: 'This is my second product',
+      price: 105
+    }
+    const newProduct = await Product.create(product)
 
+    res.writeHead(201, { 'Content-type': 'application/json' })
+    return res.end(JSON.stringify(newProduct))
   } catch (error) {
     console.log(error)
   }
@@ -35,5 +50,6 @@ async function getProduct(req, res, id) {
 
 module.exports = {
   getProducts,
-  getProduct
+  getProduct,
+  createProduct
 }

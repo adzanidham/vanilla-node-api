@@ -1,5 +1,5 @@
 const http = require('http')
-const { getProducts, getProduct } = require('./controller/products-controller')
+const { getProducts, getProduct, createProduct } = require('./controller/products-controller')
 
 const server = http.createServer((req, res) => {
   // set url route
@@ -10,6 +10,10 @@ const server = http.createServer((req, res) => {
   else if (req.url.match(/\/api\/product\/([0-9]+)/) && req.method === 'GET') {
     const id = req.url.split('/')[3]
     getProduct(req, res, id)
+  }
+  // input product
+  else if (req.url === '/api/products' && req.method === 'POST') {
+    createProduct(req, res)
   }
 
   else {
