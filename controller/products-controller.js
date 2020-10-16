@@ -1,6 +1,7 @@
 // CONTROLLER UNTUK MENGONTROL ROUTE
 
 const Product = require('../model/products-model')
+const { getPostData } = require('../utils')
 
 //  Get all products
 async function getProducts(req, res) {
@@ -34,14 +35,19 @@ async function getProduct(req, res, id) {
 //  Create product
 async function createProduct(req, res) {
   try {
+    const body = await getPostData(req)
+
+    const { title, description, price } = JSON.parse(body)
+
     const product = {
-      title: 'Test Second Product',
-      description: 'This is my second product',
-      price: 105
+      title,
+      description,
+      price
     }
+
     const newProduct = await Product.create(product)
 
-    res.writeHead(201, { 'Content-type': 'application/json' })
+    res.writeHead(201, { 'Content-Type': 'application/json' })
     return res.end(JSON.stringify(newProduct))
   } catch (error) {
     console.log(error)
