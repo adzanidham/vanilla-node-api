@@ -3,7 +3,7 @@ const products = require('./data/products')
 
 const server = http.createServer((req, res) => {
   // set url route
-  if (req.url === '/api/products') {
+  if (req.url === '/api/products' && req.method === 'GET') {
     res.writeHead(200, { 'Content-Type': 'application/json' })
     res.end(JSON.stringify(products))
   } else {
